@@ -14,10 +14,12 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'User'
     },
     upvotes:{
-        type: Number
+        type: Number,
+        default: 0
     },
     downvotes:{
-        type: Number 
+        type: Number,
+        default: 0 
     }
 });
 

@@ -1,5 +1,5 @@
 import { Router, json } from 'express';
-import { createPost } from '../Controller/postController';
+import { createPost, getPosts } from '../Controller/postController';
 
 const router = Router();
 
@@ -8,5 +8,9 @@ const router = Router();
 router.post('/api/create-post', json(), (request, response, next) =>{
     createPost(request, response, next);
 });
+
+router.get('/api/posts', (reqest, response, next) =>{
+    getPosts(reqest, response, next);
+})
 
 export default router;

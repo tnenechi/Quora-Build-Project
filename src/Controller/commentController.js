@@ -3,7 +3,7 @@ import { CommentModel } from "../Models/Comment";
 
 export const createComment = async (request, response, next) => {
   //Get the fields from the request body
-  const { comment } = request.body;
+  const { comment, userID, postID } = request.body;
 
   //Check if the requied field is empty
   if (!comment) {
@@ -15,6 +15,8 @@ export const createComment = async (request, response, next) => {
     //create and save comment
     const newComment = await CommentModel.create({
       comment: comment,
+      userID: userID,
+      postID: postID
     });
 
     response.status(201).json({

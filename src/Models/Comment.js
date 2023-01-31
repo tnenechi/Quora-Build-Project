@@ -13,10 +13,12 @@ const commentSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'Post'
     },
     upvotes:{
-        type: Number
+        type: Number,
+        default: 0
     },
     downvotes:{
-        type: Number 
+        type: Number,
+        default: 0
     }
 });
 

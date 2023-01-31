@@ -15,6 +15,7 @@ export const createPost = async (request, response, next) => {
     const newPost = await PostModel.create({
       text: text,
       pictures: pictures ? pictures : "",
+      userID: userID
     });
 
     response.status(201).json({
@@ -27,3 +28,10 @@ export const createPost = async (request, response, next) => {
       .json({ "Error occured while trying to create post": error });
   }
 };
+
+
+
+export const getPosts = async (request, response, next) =>{
+    const posts = await PostModel.find().exec();
+    response.status(200).json({posts: posts});
+}
